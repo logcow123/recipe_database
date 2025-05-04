@@ -10,13 +10,13 @@
 
 Steps to build and/or run the software:
 
-1. First step here
-2.
-3.
+1. Learn how to use sqlite with python
+2. Design and create a relational database using sqlite
+3. Create a program that creates and inteacts with the databse to show the user recipes
 
 Instructions for using the software:
 
-1. First step here
+1. TBD
 2.
 3.
 
@@ -24,7 +24,7 @@ Instructions for using the software:
 
 To recreate the development environment, you need the following software and/or libraries with the specified versions:
 
-* First thing here
+* sqlalchemy (Version -- ??)
 *
 *
 
@@ -32,7 +32,7 @@ To recreate the development environment, you need the following software and/or 
 
 I found these websites useful in developing this software:
 
-* [Website Title](Link)
+* [SQLalchemy](https://docs.sqlalchemy.org/en/20/)
 *
 *
 
@@ -40,6 +40,6 @@ I found these websites useful in developing this software:
 
 The following items I plan to fix, improve, and/or add to this project in the future:
 
-* [ ] First thing here
+* [ ] Create main database
 * [ ]
 * [ ]

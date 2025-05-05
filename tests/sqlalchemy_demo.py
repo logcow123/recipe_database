@@ -1,5 +1,7 @@
 import sqlalchemy as sa
 import sqlalchemy.orm as so
+from typing import List, Optional
+
 
 #   create engine || what database || What DBAPI || Location [echo means that it will log all the SQL the engine emtis]
 engine = sa.create_engine("sqlite+pysqlite:///:memory:", echo=True)
@@ -53,3 +55,63 @@ with so.Session(engine) as session:
         [{"x": 9, "y": 11}, {"x": 13, "y": 15}],
     )
     session.commit()
+
+print("BEFORE CREATION")
+# allows for metadata to be created
+meta_data_obj = sa.MetaData()
+
+# creating a table in an Object Orientated way
+user_table = sa.Table(
+    "user_account",
+    meta_data_obj,
+    sa.Column("id", sa.Integer, primary_key=True),
+    sa.Column("name", sa.String(30)),
+    sa.Column("fullname", sa.String)
+)
+
+# Using a Foriegn key in another table
+address_table = sa.Table(
+    "address",
+    meta_data_obj,
+    sa.Column("id", sa.Integer, primary_key=True),
+    sa.Column("user_id", sa.ForeignKey("user_account.id"), nullable=False),
+    sa.Column("email_address", sa.String, nullable=False),
+)
+
+#after declareing the objects, the meta_data_obj can create the tables for us
+meta_data_obj.create_all(engine)
+
+
+
+# ORM version of creating tables
+
+# creates a delcarative base that allows use of the meta-data collection
+class Base(so.DeclarativeBase):
+    pass
+
+# example table
+class User(Base):
+    __tablename__ = "user_account"
+
+    id: so.Mapped[int] = so.mapped_column(primary_key=True)
+    name: so.Mapped[str] = so.mapped_column(sa.String(30))
+    fullname: so.Mapped[Optional[str]]
+
+    addresses: so.Mapped[List["Address"]] = so.relationship(back_populates="user")
+
+    def __repr__(self) -> str:
+        return f"User(id={self.id!r}, name={self.name!r}, fullname={self.fullname!r})"
+    
+class Address(Base):
+    __tablename__ = "address"
+
+    id: so.Mapped[int] = so.mapped_column(primary_key=True)
+    email_address: so.Mapped[str]
+    user_id = so.mapped_column(sa.ForeignKey("user_account.id"))
+
+    user: so.Mapped[User] = so.relationship(back_populates="addresses")
+
+    def __repr__(self):
+        return f"Address(id={self.id!r}, email_address={self.email_address!r})"
+
+Base.metadata.create_all(engine)

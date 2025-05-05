@@ -29,7 +29,7 @@ The expected minimum amount of time each Sprint for each category is as follows:
 |30 April  |3:15      |MTG     |Planning out what assignments we will have  |  1 Hour     |
 |1 May     |3:15      |IM      |Test with SQLite. made test db and querries |  1 Hour 30  |
 |4 May     |10:30     |IM      |Working with sqlalchemy basics              |  1 Hour     |
-|          |          |        |                                            |             |
+|5 May     |9:00      |IM      |Using sqlalchemy to create Foreign Keys     |  1 Hour     |
 |          |          |        |                                            |             |
 |          |          |        |                                            |             |
 

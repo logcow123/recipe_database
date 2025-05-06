@@ -115,3 +115,16 @@ class Address(Base):
         return f"Address(id={self.id!r}, email_address={self.email_address!r})"
 
 Base.metadata.create_all(engine)
+
+
+
+# using .insert() to make an insert statment
+stmt = sa.insert(user_table).values(name="spongebob", fullname="Spongebob Squarepants")
+print(stmt)
+
+with engine.connect() as conn:
+    result = conn.execute(stmt)
+    conn.commit
+    print(result.inserted_primary_key)
+
+print(sa.insert(user_table))

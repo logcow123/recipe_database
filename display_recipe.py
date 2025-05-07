@@ -14,23 +14,25 @@ def main():
 
 
 def displayRecipe(recipe):
-    recipe_data = getRecipeData(recipe)
+    recipe_data = getRecipeData(recipe.lower())
+    if recipe_data != None:
+        recipe_id = recipe_data[0]
+        recipe_title = recipe_data[1]
 
-    recipe_id = recipe_data[0]
-    recipe_title = recipe_data[1]
+        ingr_dict = getIngredients(recipe_id)
+        instruction = getInstructions(recipe_id)
 
-    ingr_dict = getIngredients(recipe_id)
-    instruction = getInstructions(recipe_id)
-
-    print(f"{recipe_title}: \n")
-    print("Ingredients: ")
-    for ingr in ingr_dict:
-        print(f"{ingr}: {ingr_dict[ingr]}")
-    
-    print()
-    print("Instructions:")
-    for i in range(len(instruction)):
-        print(f"{i+1}: {instruction[i]}")
+        print(f"{recipe_title.title()}: \n")
+        print("Ingredients: ")
+        for ingr in ingr_dict:
+            print(f"{ingr}: {ingr_dict[ingr]}")
+        
+        print()
+        print("Instructions:")
+        for i in range(len(instruction)):
+            print(f"{i+1}: {instruction[i]}")
+    else:
+        print("Recipe Does Not Exist")
 
 
 
@@ -40,10 +42,7 @@ def getRecipeData(recipe):
         stmt = sa.select(recipe_table).where(recipe_table.c.title == recipe)
         results = conn.execute(stmt).fetchone() # use fetchone() or fetchall()
 
-        recipe_id = results[0]
-        recipe_title = results[1]
-
-        return (recipe_id, recipe_title)
+        return results
     
 def getIngredients(recipe_id):
     with engine.connect() as conn:

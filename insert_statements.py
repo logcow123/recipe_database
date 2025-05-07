@@ -35,7 +35,7 @@ def insertIngredients(ingredients):
 def insertRecipes(recipes):
     with engine.connect() as conn:
         for rec in recipes:
-            rec_text = sa.insert(recipe_table).values(title=rec)
+            rec_text = sa.insert(recipe_table).values(title=rec.lower())
             conn.execute(rec_text)
         conn.commit()
 

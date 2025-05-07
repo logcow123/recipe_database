@@ -1,12 +1,10 @@
-from recipe_database import engine, ingredient_table, recipe_ingredient, recipe_table, instruction_table
 import insert_statements as instmt
 from display_recipe import getRecipeData, displayRecipe
-import sqlalchemy as sa
 
 def main():
         userMakeRecipe()
         displayRecipe("ramen")
-        
+
                  
 def userMakeRecipe():
     title = input("What is the Title of your Recipe?\n").lower()
@@ -36,8 +34,6 @@ def insertRecipe(r_title, r_ingredients, r_instructions):
     instmt.insertRecipes([r_title])
 
     results = getRecipeData(r_title)
-    print("+++++++++++++++++++++++++")
-    print(results)
     r_id = results[0]
 
     instmt.insertInstructions(r_instructions, r_id)

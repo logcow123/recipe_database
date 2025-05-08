@@ -35,11 +35,23 @@ def main():
 
 # This section Inserts the Recipes Into the Database
 def insertIngredients(ingredients):
+    for ingr in ingredients.keys():
+        insertIngredient(ingr)
+    
+def insertIngredient(ingr):
+    # Will check to see if the ingredient exsits already and will return the id of the ingredient
     with engine.connect() as conn:
-        for ingr in ingredients.keys():
-            ingr_text = sa.insert(ingredient_table).values(name=ingr)
-            conn.execute(ingr_text)
-        conn.commit()
+        stmt = sa.select(ingredient_table).where(ingredient_table.c.name == ingr)
+        table_ingr = conn.execute(stmt).fetchone()
+        
+        if table_ingr == None:
+            stmt = sa.insert(ingredient_table).values(name=ingr)
+            conn.execute(stmt)
+            conn.commit()
+            stmt = sa.select(ingredient_table).where(ingredient_table.c.name == ingr)
+            table_ingr = conn.execute(stmt).fetchone()
+
+        return table_ingr[0]
 
 def insertRecipes(recipes):
     with engine.connect() as conn:

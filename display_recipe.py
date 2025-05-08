@@ -24,7 +24,7 @@ def displayRecipe(recipe_id):
         print(f"{recipe_title.title()}: \n")
         print("Ingredients: ")
         for ingr in ingr_dict:
-            print(f"{ingr}: {ingr_dict[ingr]}")
+            print(f"{ingr:<20}: {ingr_dict[ingr]}")
         
         print()
         print("Instructions:")
@@ -42,6 +42,13 @@ def getRecipeData(recipe_id):
         results = conn.execute(stmt).fetchone() # use fetchone() or fetchall()
 
         return results
+
+def getRecipeId(recipe_title):
+    with engine.connect() as conn:
+        stmt = sa.select(recipe_table).where(recipe_table.c.title == recipe_title)
+        results = conn.execute(stmt).fetchone()
+
+        return results[0]
 
 def getAllRecipes():
     with engine.connect() as conn:

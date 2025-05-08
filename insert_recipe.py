@@ -1,5 +1,6 @@
 import insert_statements as instmt
-from display_recipe import getRecipeData, displayRecipe
+from display_recipe import getRecipeData, displayRecipe, getRecipeId
+import os
 
 def main():
         userMakeRecipe()
@@ -17,6 +18,7 @@ def userMakeRecipe():
              ingredients[ingr_name] = ingr_amount
         else:
             break
+    os.system("clear")
     print("Type in the instrucitons for your recipe (Enter nothing when Finished):")
     while True:
         instruction = input(" - ")
@@ -33,8 +35,7 @@ def insertRecipe(r_title, r_ingredients, r_instructions):
     instmt.insertIngredients(r_ingredients)
     instmt.insertRecipes([r_title])
 
-    results = getRecipeData(r_title)
-    r_id = results[0]
+    r_id = getRecipeId(r_title)
 
     instmt.insertInstructions(r_instructions, r_id)
     instmt.insertIngrRec(r_ingredients, r_id)

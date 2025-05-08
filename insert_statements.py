@@ -12,7 +12,16 @@ INSTR_GRILL_CHEESE = ["Put a frying pan on the stove top and set the tempurature
                       "Cook until the other side is golden brown",
                       "Remove the sandwich from the pan and enjoy"]
 
-RECIPES = ["Grilled Cheese"]
+INGR_HARD_EGG = {"Egg": "1-6",
+                 "Salt": "1 tsp"}
+
+INSTR_HARD_EGG = ["Bring a pot of water to a boil",
+                  "Carefully insert the eggs into the water",
+                  "Let them boil for 9-14 minutes",
+                  "Remove the eggs from the water and let sit until cool",
+                  "Peel the eggs and enjoy with salt"]
+
+RECIPES = ["Grilled Cheese", "Hard Boiled Eggs"]
 
 
 
@@ -61,11 +70,16 @@ def insertIngrRec(ingredients, recipe_id_param):
 
 
 insertIngredients(INGR_GRILL_CHEESE)
+insertIngredients(INGR_HARD_EGG)
 
 insertRecipes(RECIPES)
 
+
 insertInstructions(INSTR_GRILL_CHEESE, 1)
+insertInstructions(INSTR_HARD_EGG, 2)
+
 insertIngrRec(INGR_GRILL_CHEESE, 1)
+insertIngrRec(INGR_HARD_EGG, 2)
 
 if __name__ == "__main__":
     main()

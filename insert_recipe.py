@@ -3,7 +3,7 @@ from display_recipe import getRecipeData, displayRecipe
 
 def main():
         userMakeRecipe()
-        displayRecipe("ramen")
+        displayRecipe(2)
 
                  
 def userMakeRecipe():

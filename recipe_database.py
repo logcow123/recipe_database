@@ -2,7 +2,7 @@ import sqlalchemy as sa
 
 
 # I will use memory for now until I have everything sorted
-engine = sa.create_engine("sqlite+pysqlite:///:memory:", echo=True)
+engine = sa.create_engine("sqlite+pysqlite:///:memory:", echo=False)
 metadata_obj = sa.MetaData()
 
 #This section creates all the Tables

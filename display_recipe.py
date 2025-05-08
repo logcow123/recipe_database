@@ -9,12 +9,11 @@ AMOUNT_INDEX = 3
 INSTR_TECT_INDEX = 3
 
 def main():
-    displayRecipe("Grilled Cheese")
+    displayRecipe(1)
 
 
-
-def displayRecipe(recipe):
-    recipe_data = getRecipeData(recipe.lower())
+def displayRecipe(recipe_id):
+    recipe_data = getRecipeData(recipe_id)
     if recipe_data != None:
         recipe_id = recipe_data[0]
         recipe_title = recipe_data[1]
@@ -36,11 +35,18 @@ def displayRecipe(recipe):
 
 
 
-def getRecipeData(recipe):
+def getRecipeData(recipe_id):
     with engine.connect() as conn:
         # when getting results... dont forget to fetch them!!!
-        stmt = sa.select(recipe_table).where(recipe_table.c.title == recipe)
+        stmt = sa.select(recipe_table).where(recipe_table.c.id == recipe_id)
         results = conn.execute(stmt).fetchone() # use fetchone() or fetchall()
+
+        return results
+
+def getAllRecipes():
+    with engine.connect() as conn:
+        stmt = sa.select(recipe_table)
+        results = conn.execute(stmt).fetchall()
 
         return results
     

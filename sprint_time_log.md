@@ -26,8 +26,10 @@ The expected minimum amount of time each Sprint for each category is as follows:
 
 |Date      |Start Time|Category|Description                                 |Total Minutes|
 |----------|----------|:------:|--------------------------------------------|:-----------:|
+|28 May    |3:15      |MTG     |Initial Planning                            |  1 Hour     |
 |30 April  |3:15      |MTG     |Planning out what assignments we will have  |  1 Hour     |
 |1 May     |3:15      |IM      |Test with SQLite. made test db and querries |  1 Hour 30  |
+|2 May     |3:15      |MTG     |Stand up meeting                            |  1 Hour     |
 |4 May     |10:30     |IM      |Working with sqlalchemy basics              |  1 Hour     |
 |5 May     |9:00      |IM      |Using sqlalchemy to create Foreign Keys     |  1 Hour     |
 |5 May     |2:00      |TP      |Decided on a framework                      |  1 Hour     |
@@ -35,6 +37,7 @@ The expected minimum amount of time each Sprint for each category is as follows:
 |7 May     |9:00      |IM      |Created a funcion for a user to make recipes|  1 Hour     |
 |7 May     |3:15      |MTG     |Presented our project                       |  1 Hour     |
 |8 May     |2:00      |IM      |Created a menu and a way to update data     |  2 Hours    |
+|9 May     |12:45     |IM      |Added a Delete function to delete data      |  30 Minutes |
 
 _Note: Add more rows as needed._
 
@@ -42,7 +45,7 @@ _Note: Add more rows as needed._
 
 |Categroy                       |Total Time (Hours:Minutes)|
 |-------------------------------|:------------------------:|
-|IM - Individual Module         |                          |
-|TP - Team Project              |                          |
-|MTG - Class Meetings           |                          |
-|**TOTAL**                      |                          |
+|IM - Individual Module         | 10:00                    |
+|TP - Team Project              | 4:00                     |
+|MTG - Class Meetings           | 4:00                     |
+|**TOTAL**                      | 18:00                    |

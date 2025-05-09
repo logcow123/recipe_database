@@ -1,6 +1,7 @@
 import sqlalchemy as sa
 import insert_statements
 from recipe_database import engine, ingredient_table, recipe_ingredient, recipe_table, instruction_table
+import time
 
 ID_INDEX = 0
 INGR_NAME_INDEX= 1
@@ -30,8 +31,10 @@ def displayRecipe(recipe_id):
         print("Instructions:")
         for i in range(len(instruction)):
             print(f"{i+1}: {instruction[i]}")
+        input()
     else:
         print("Recipe Does Not Exist")
+        time.sleep(1)
 
 
 

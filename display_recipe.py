@@ -49,6 +49,13 @@ def getRecipeId(recipe_title):
         results = conn.execute(stmt).fetchone()
 
         return results[0]
+    
+def getAllRecipesID():
+    recipes = getAllRecipes()
+    ids = []
+    for recipe in recipes:
+        ids.append(recipe[0])
+    return ids
 
 def getAllRecipes():
     with engine.connect() as conn:

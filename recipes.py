@@ -1,7 +1,8 @@
-from display_recipe import displayRecipe, getAllRecipes
+from display_recipe import displayRecipe, getAllRecipes, getAllRecipesID
 from insert_recipe import insertRecipe, userMakeRecipe
 from update_recipe import *
 import os
+import time
 
 def main():
     continue_program = True
@@ -19,7 +20,8 @@ def main():
             case "3":
                 case3()
             case "4":
-                print("Case 4")
+                print("Not Implemented")
+                time.sleep(1)
             case "5":
                 continue_program = False
 
@@ -66,8 +68,12 @@ def case3():
     while valid_input == False:
         rec_id = input()
         try:
-            int(rec_id)
-            valid_input = True
+            recid = int(rec_id)
+            if recid in getAllRecipesID():
+                valid_input = True
+            else:
+                print("Not a Valid ID")
+
         except:
             print("Please enter a valid Number!")
     rec_id = int(rec_id)

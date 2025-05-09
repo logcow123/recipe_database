@@ -26,18 +26,19 @@ The expected minimum amount of time each Sprint for each category is as follows:
 
 |Date      |Start Time|Category|Description                                 |Total Minutes|
 |----------|----------|:------:|--------------------------------------------|:-----------:|
-|28 May    |3:15      |MTG     |Initial Planning                            |  1 Hour     |
-|30 April  |3:15      |MTG     |Planning out what assignments we will have  |  1 Hour     |
-|1 May     |3:15      |IM      |Test with SQLite. made test db and querries |  1 Hour 30  |
-|2 May     |3:15      |MTG     |Stand up meeting                            |  1 Hour     |
+|28 May    |2:00      |MTG     |Initial Planning                            |  1 Hour     |
+|30 April  |2:00      |TP      |Planning out what assignments we will have  |  1 Hour     |
+|1 May     |2:00      |IM      |Test with SQLite. made test db and querries |  1 Hour 30  |
+|2 May     |2:00      |MTG     |Stand up meeting                            |  1 Hour     |
 |4 May     |10:30     |IM      |Working with sqlalchemy basics              |  1 Hour     |
 |5 May     |9:00      |IM      |Using sqlalchemy to create Foreign Keys     |  1 Hour     |
 |5 May     |2:00      |TP      |Decided on a framework                      |  1 Hour     |
 |6 May     |4:00      |IM      |Created a working prototype and display func|  3 Hours    |
 |7 May     |9:00      |IM      |Created a funcion for a user to make recipes|  1 Hour     |
-|7 May     |3:15      |MTG     |Presented our project                       |  1 Hour     |
+|7 May     |2:00      |MTG     |Presented our project                       |  1 Hour     |
 |8 May     |2:00      |IM      |Created a menu and a way to update data     |  2 Hours    |
 |9 May     |12:45     |IM      |Added a Delete function to delete data      |  30 Minutes |
+|9 May     |2:00      |MTG     |Individual Review Meeting                   |  1 Hour     |
 
 _Note: Add more rows as needed._
 
